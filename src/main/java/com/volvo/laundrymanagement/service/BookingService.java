@@ -32,7 +32,7 @@ public class BookingService {
     }
 
     public Map<LocalDate, Map<String, List<TimeSlot>>> getAvailableBookings() {
-        log.info("Getting available booking ofr the period () ", LocalDate.now() + "-" + LocalDate.now().plusMonths(BOOKING_MONTHS));
+        log.info("Getting available booking for the period () ", LocalDate.now() + "-" + LocalDate.now().plusMonths(BOOKING_MONTHS));
         var timeSlots = bookingRepository.getAllTimeSlots();
         var laundryRooms = bookingRepository.getAllLaundryRooms();
         var startDate = LocalDate.now();
