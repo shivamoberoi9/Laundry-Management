@@ -1,0 +1,25 @@
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="admin" id="1">
+    <sql>
+        CREATE TABLE bookings
+        (
+        booking_id INT NOT NULL AUTO_INCREMENT
+        CONSTRAINT pk_booking_id PRIMARY KEY,
+        room_id INT CONSTRAINT fk_room_id REFERENCES laundry_rooms NOT NULL ,
+        resident_id INT CONSTRAINT fk_resident_id REFERENCES residents NOT NULL ,
+        booked_at DATE NOT NULL,
+        slot_id INT CONSTRAINT fk_slot_id REFERENCES time_slots NOT NULL ,
+        booking_code UUID NOT NULL
+        );
+
+        CREATE UNIQUE INDEX room_slot_date_unique ON bookings (slot_id,room_id,booked_at);
+    </sql>
+    <rollback>
+        DROP TABLE bookings CASCADE;
+    </rollback>
+    </changeSet>
+</databaseChangeLog>

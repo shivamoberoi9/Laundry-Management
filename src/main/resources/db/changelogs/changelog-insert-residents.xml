@@ -1,0 +1,31 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="admin" id="1">
+        <sql>
+            INSERT INTO residents
+            VALUES (1, 'shivam')
+                 , (2, 'alex')
+                 , (3, 'robin')
+                 , (4, 'jonatghon')
+                 , (5, 'rahul')
+                 , (6, 'ola')
+                 , (7, 'olle')
+                 , (8, 'hampus')
+                 , (9, 'mikeala')
+                 , (10, 'danka')
+                 , (11, 'christina')
+                 , (12, 'gabriel')
+                 , (13, 'shelly')
+                 , (14, 'patrick')
+                 , (15, 'aniket')
+                 , (16, 'chris')
+                 , (17, 'martin')
+                 , (18, 'vj')
+                 , (19, 'lukas')
+                 , (20, 'kim');
+        </sql>
+    </changeSet>
+</databaseChangeLog>
