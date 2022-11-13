@@ -5,6 +5,7 @@ import com.volvo.laundrymanagement.model.TimeSlot;
 import com.volvo.laundrymanagement.repository.BookingRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -62,7 +63,7 @@ public class BookingService {
         }
         return roomsWithSlots;
     }
-
+    @Transactional
     public UUID bookLaundry(String slotStart, String slotEnd, String laundryRoom, String bookingDate, String residentName) {
         String[] start = slotStart.split(":");
         String[] end = slotEnd.split(":");
